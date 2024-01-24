@@ -1,18 +1,21 @@
 import React from 'react';
 import './FileContainer.css';
+import success from "../success.png";
+import error from "../error.png";
 
 const FileContainer = ({ fileInfo }) => {
-    const fileStatusIcon = fileInfo.status === 'success' ? '✔' : '❌';
+    const fileStatusIcon = fileInfo.status === 'success' ? success : error;
     const trajectoryName = fileInfo.name === undefined ? 'N/A' : fileInfo.name;
     const epsg = fileInfo.epsg === undefined ? 'N/A' : fileInfo.epsg;
 
     return <div className='file-container'>
         <div className='file-container-header'>
+
+            <div className="file-name">File</div>
             <div className='file-symbols'>
-                <div className="file-status">{fileStatusIcon}</div>
-                <div className="file-icon">📄</div>
+                <img className='file-status-icon' src={fileStatusIcon} alt='status' />
+                <div className="file-name">{fileInfo.fileName}</div>
             </div>
-            <div className="file-name">{fileInfo.fileName}</div>
         </div>
 
         <div className="file-info-container">

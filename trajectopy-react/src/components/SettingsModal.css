@@ -51,6 +51,7 @@
     padding: 5px 10px;
     margin-left: 5px;
     cursor: pointer;
+    font-size: 14px;
 }
 
 .modal-button:hover {
@@ -70,4 +71,5 @@
 
 .settings-input {
     text-align: right;
+    font-size: 14px;
 }

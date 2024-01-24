@@ -55,3 +55,8 @@
 .file-status {
     color: darkgreen;
 }
+
+.file-status-icon {
+    height: 20px;
+    margin-right: 5px;
+}
