@@ -1,0 +1,16 @@
+.drop-zone {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.drop-zone.active {
+    background-color: #eee;
+}
+
+.error-message {
+    color: red;
+    margin-top: 30px;
+}

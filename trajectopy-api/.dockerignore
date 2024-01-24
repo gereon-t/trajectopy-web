@@ -1,0 +1,5 @@
+test
+.venv
+logs/
+data/
+database.db

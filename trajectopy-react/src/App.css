@@ -1,0 +1,19 @@
+.App {
+  text-align: center;
+  width: 60%;
+  margin: auto;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  font-size: 12px;
+  color: #999;
+}
