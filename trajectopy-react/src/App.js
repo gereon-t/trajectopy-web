@@ -33,8 +33,16 @@ const App = () => {
           <Base sessionId={sessionId} />
         </div>
       </div>
-      <footer className='footer'>Session ID: {sessionId}</footer>
-    </div>
+      <footer className='footer'>
+        <div className='footer-items'>
+          <a href='https://github.com/gereon-t/trajectopy-web'>gereon-t/trajectopy-web</a>
+          <div className='footer-divider'></div>
+          <a href='https://github.com/gereon-t/trajectopy'>Desktop App</a>
+          <div className='footer-divider'></div>
+          <div className='session-text'>Session ID: {sessionId}</div>
+        </div>
+      </footer>
+    </div >
   );
 }
 
