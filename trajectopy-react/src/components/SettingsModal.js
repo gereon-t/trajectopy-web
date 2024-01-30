@@ -6,6 +6,21 @@ function capitalizeFirstLetter(settings_string) {
     const words = settings_string.split('_');
 
     for (let i = 0; i < words.length; i++) {
+
+        if (words[i] === "ate") {
+            words[i] = "ATE";
+            continue;
+        }
+
+        if (words[i] === "rpe") {
+            words[i] = "RPE";
+            continue;
+        }
+
+        if (words[i] === "mm" || words[i] === "in") {
+            continue;
+        }
+
         words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
     }
 
