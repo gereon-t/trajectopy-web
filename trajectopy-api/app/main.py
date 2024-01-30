@@ -13,15 +13,12 @@ logger = logging.getLogger("root")
 
 models.Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="Trajectopy API", version="0.1.0")
+app = FastAPI(title="Trajectopy API", version="0.1.0", docs_url=None, redoc_url=None)
 
 logger.info("Starting Trajectopy API")
 
 # Define allowed origins explicitly
-allowed_origins = [
-    "http://frontend",
-    "https://trajectopy.xyz",
-]
+allowed_origins = ["http://frontend"]
 
 app.add_middleware(
     CORSMiddleware,
