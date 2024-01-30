@@ -1,7 +1,10 @@
 .App {
   text-align: center;
-  width: 60%;
-  margin: auto;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .session-text {

@@ -32,19 +32,22 @@ const Base = ({ sessionId }) => {
                 onClose={() => setIsSettingsModalOpen(false)}
                 settings={currentSettings}
             />
-            <div className='trajectories-container'>
-                <div className='trajectory-container'>
-                    <div className='traj-title'>Ground Truth Trajectory</div>
-                    <div className='traj-content'>
-                        <FileUpload sessionId={sessionId} setFileId={setGtFileId} />
+            <div className='content'>
+                <div className='trajectories-container'>
+                    <div className='trajectory-container'>
+                        <div className='traj-title'>Ground Truth Trajectory</div>
+                        <div className='traj-content'>
+                            <FileUpload sessionId={sessionId} setFileId={setGtFileId} />
+                        </div>
                     </div>
-                </div>
-                <div className='trajectory-divider' />
-                <div className='trajectory-container'>
-                    <div className='traj-title'>Estimated Trajectory</div>
-                    <div className='traj-content'>
-                        <FileUpload sessionId={sessionId} setFileId={setEstFileId} />
+                    <div className='trajectory-divider' />
+                    <div className='trajectory-container'>
+                        <div className='traj-title'>Estimated Trajectory</div>
+                        <div className='traj-content'>
+                            <FileUpload sessionId={sessionId} setFileId={setEstFileId} />
+                        </div>
                     </div>
+
                 </div>
                 <div className="button-row">
                     <button className='button' onClick={() => setIsSettingsModalOpen(true)}>Open Settings</button>
