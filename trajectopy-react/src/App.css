@@ -35,3 +35,18 @@
 .footer-divider {
   margin: 0 10px;
 }
+
+@media screen and (max-width: 768px) {
+  .footer {
+    height: 30px;
+  }
+
+  .session-text {
+    display: none;
+  }
+
+  .footer-items {
+    font-size: 10px;
+  }
+
+}

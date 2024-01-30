@@ -2,12 +2,12 @@ version: '3.8'
 
 services:
   frontend:
-    image: trajectopy-frontend:latest
+    image: gtombrink/trajectopy-web:latest
     depends_on:
       - reverse-proxy
 
   backend:
-    image: trajectopy-backend:latest
+    image: gtombrink/trajectopy-api:latest
     depends_on:
       - reverse-proxy
 
