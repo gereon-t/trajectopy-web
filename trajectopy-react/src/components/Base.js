@@ -50,7 +50,7 @@ const Base = ({ sessionId }) => {
 
                 </div>
                 <div className="button-row">
-                    <button className='button' onClick={() => setIsSettingsModalOpen(true)}>Open Settings</button>
+                    <button className='button' onClick={() => setIsSettingsModalOpen(true)}>Settings</button>
                     <div className='processing-button-row'>
                         {loading && <div className="loading-spinner" />}
                         < Plot sessionId={sessionId} gtFileId={gtFileId} estFileId={estFileId} settings={currentSettings} setLoading={setLoading} loading={loading} />
