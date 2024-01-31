@@ -4,6 +4,7 @@ import Base from './components/Base';
 import React, { useState, useEffect } from 'react';
 import { createSession } from './api';
 
+
 const App = () => {
 
   const [sessionId, setCurrentSessionId] = useState(null);
@@ -38,6 +39,8 @@ const App = () => {
           <a href='https://github.com/gereon-t/trajectopy-web'>gereon-t/trajectopy-web</a>
           <div className='footer-divider'></div>
           <a href='https://github.com/gereon-t/trajectopy'>Desktop App</a>
+          <div className='footer-divider'></div>
+          <a href='/api/dsgvo'>Datenschutz</a>
         </div>
       </footer>
     </div >

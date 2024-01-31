@@ -9,7 +9,7 @@ from app.storage.protocol import Storage
 
 logger = logging.getLogger("root")
 
-SESSION_TIMEOUT = timedelta(days=1)
+SESSION_TIMEOUT = timedelta(hours=1)
 
 
 def is_session_expired(session: models.Session) -> bool:

@@ -1,5 +1,6 @@
 import React from 'react';
 import './SettingsModal.css';
+import './Modal.css'
 
 
 function capitalizeFirstLetter(settings_string) {
@@ -52,16 +53,16 @@ const SettingsRow = ({ settingName, value, onUpdateSettings }) => {
 const SettingsModal = ({ isOpen, onUpdateSettings, onClose, settings }) => {
     return (
         isOpen && (
-            <div className="settings-modal">
+            <div className="modal">
                 <div className="modal-content">
                     <div className='modal-title'>Settings</div>
 
-                    <div className='settings-container'>
+                    <div className='modal-container'>
                         {Object.entries(settings).map(([settingName, value]) => (
                             <SettingsRow settingName={settingName} value={value} onUpdateSettings={onUpdateSettings} />
                         ))}
                     </div>
-                    <div className="settings-button-group">
+                    <div className="modal-button-group">
                         <button className='modal-button' onClick={onClose}>Close</button>
                     </div>
                 </div>
