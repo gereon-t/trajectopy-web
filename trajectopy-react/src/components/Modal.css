@@ -31,7 +31,7 @@
 
 .modal-title {
     font-size: 24px;
-    font-weight: 600;
+    font-weight: 400;
     margin-bottom: 10px;
     text-align: left;
     padding-bottom: 10px;
@@ -40,13 +40,15 @@
 
 .modal-button {
     background-color: rgb(55, 115, 165);
-    color: white;
     border: none;
     border-radius: 5px;
-    padding: 5px 10px;
-    margin-left: 5px;
+    color: white;
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
     cursor: pointer;
-    font-size: 14px;
+    height: 36px;
 }
 
 .modal-button:hover {

@@ -15,7 +15,7 @@
 
 .traj-title {
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 500;
     margin-bottom: 15px;
     text-align: left;
 }
@@ -67,6 +67,7 @@
     margin-left: auto;
     margin-right: auto;
 }
+
 
 .loading-spinner {
     border: 4px solid rgba(0, 0, 0, 0.1);

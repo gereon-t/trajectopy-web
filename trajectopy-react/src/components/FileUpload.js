@@ -81,7 +81,7 @@ const FileUpload = ({ sessionId, setFileId }) => {
                 onDragEnter={handleDragEnter}
                 onDragLeave={handleDragLeave}
             >
-                {dragOver ? <p>Drop the file here...</p> : <p>Click or drag a file here to upload</p>}
+                {dragOver ? <p className='drop-message'>Drop the file here...</p> : <p className='drop-message'>Click or drag a file here to upload</p>}
             </div>
 
             <input

@@ -9,3 +9,8 @@
 .drop-zone.active {
     background-color: #eee;
 }
+
+.drop-message {
+    font-weight: 300;
+    font-size: 16px;
+}

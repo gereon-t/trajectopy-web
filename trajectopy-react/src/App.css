@@ -2,11 +2,6 @@
   text-align: center;
 }
 
-.dsgvo-link {
-  text-decoration: underline;
-  cursor: pointer;
-}
-
 .container {
   max-width: 1000px;
   margin: 0 auto;
