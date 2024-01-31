@@ -7,6 +7,9 @@ services:
   backend:
     image: gtombrink/trajectopy-api:latest
 
+    volumes:
+      - ./data:/app/data
+
   reverse-proxy:
     image: nginx
     depends_on:
