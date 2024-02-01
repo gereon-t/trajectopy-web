@@ -1,7 +1,8 @@
+export const ENDPOINT_URL = 'api';
 
 export const createSession = async () => {
     try {
-        const response = await fetch('api/sessions/create', {
+        const response = await fetch(ENDPOINT_URL + '/sessions/create', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -23,7 +24,7 @@ export const uploadFile = async (file, session_id) => {
         const formData = new FormData();
         formData.append('file', file);
 
-        const response = await fetch('api/trajectories/upload?' + new URLSearchParams({
+        const response = await fetch(ENDPOINT_URL + '/trajectories/upload?' + new URLSearchParams({
             session_id: session_id,
         }), { method: 'POST', body: formData });
 
@@ -41,7 +42,7 @@ export const uploadFile = async (file, session_id) => {
 
 export const compareTrajectories = async (sessionId, estFileId, gtFileId, settings) => {
     try {
-        const response = await fetch('api/trajectories/compare?' + new URLSearchParams({
+        const response = await fetch(ENDPOINT_URL + '/trajectories/compare?' + new URLSearchParams({
             session_id: sessionId, est_trajectory_id: estFileId, gt_trajectory_id: gtFileId
         }), {
             method: 'POST', headers: {
@@ -63,7 +64,7 @@ export const compareTrajectories = async (sessionId, estFileId, gtFileId, settin
 
 export const plotTrajectory = async (sessionId, trajectoryIds) => {
     try {
-        const response = await fetch('api/trajectories/plot?' + new URLSearchParams({
+        const response = await fetch(ENDPOINT_URL + '/trajectories/plot?' + new URLSearchParams({
             session_id: sessionId
         }), {
             method: 'POST', headers: {
@@ -85,7 +86,7 @@ export const plotTrajectory = async (sessionId, trajectoryIds) => {
 
 export const getReport = async (reportId) => {
     try {
-        const response = await fetch(`api/results/render/${reportId}`, { method: 'GET' });
+        const response = await fetch(`${ENDPOINT_URL}/results/render/${reportId}`, { method: 'GET' });
 
         if (response.status !== 200) {
             throw new Error('Failed to get report');

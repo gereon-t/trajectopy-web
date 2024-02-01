@@ -17,8 +17,7 @@ app = FastAPI(title="Trajectopy API", version="0.1.0", docs_url=None, redoc_url=
 
 logger.info("Starting Trajectopy API")
 
-# Define allowed origins explicitly
-allowed_origins = ["http://frontend"]
+allowed_origins = ["http://frontend", "http://localhost:3000"]
 
 app.add_middleware(
     CORSMiddleware,

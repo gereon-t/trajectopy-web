@@ -1,9 +1,9 @@
-import { plotTrajectory } from '../api';
+import { plotTrajectory, ENDPOINT_URL } from '../api';
 import React from 'react';
 
 function renderReport(response) {
     const reportId = response.id;
-    window.open(`api/results/render/${reportId}`, '_blank');
+    window.open(`${ENDPOINT_URL}/results/render/${reportId}`, '_blank');
 }
 
 const Plot = ({ sessionId, gtFileId, estFileId, settings, setLoading, loading }) => {

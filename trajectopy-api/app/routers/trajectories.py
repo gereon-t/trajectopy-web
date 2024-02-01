@@ -56,7 +56,10 @@ async def upload_trajectory_endpoint(
     if session_crud.get_session(db, session_id) is None:
         raise HTTPException(status_code=404, detail="Session not found")
 
-    input_stream = str(file.file.read(), encoding="utf-8")
+    try:
+        input_stream = str(file.file.read(), encoding="utf-8")
+    except UnicodeDecodeError as exc:
+        raise HTTPException(status_code=400, detail="Invalid file encoding") from exc
 
     try:
         read_trajectory = tpy_trajectory.Trajectory.from_file(

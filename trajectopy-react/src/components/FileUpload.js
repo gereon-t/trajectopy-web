@@ -8,6 +8,8 @@ const FileUpload = ({ sessionId, setFileId }) => {
     const [file, setFile] = useState(null);
     const [fileInfo, setFileInfo] = useState({});
 
+    const [loading, setLoading] = useState(false);
+
     const handleDragEnter = e => {
         e.preventDefault();
         e.stopPropagation();
@@ -42,6 +44,7 @@ const FileUpload = ({ sessionId, setFileId }) => {
 
     const processFile = useCallback((file) => {
         console.log('Processing file:', file.name);
+        setLoading(true);
 
         uploadFile(file, sessionId)
             .then(response => {
@@ -51,7 +54,7 @@ const FileUpload = ({ sessionId, setFileId }) => {
             })
             .catch(() => {
                 setFileInfo({ fileName: file.name, status: 'error' });
-            });
+            }).finally(() => setLoading(false));
     }, [sessionId, setFileId]);
 
     const handleUploadAreaClick = () => {
@@ -90,7 +93,7 @@ const FileUpload = ({ sessionId, setFileId }) => {
                 style={{ display: 'none' }}
                 onChange={handleFileInputChange}
             />
-            {file && <FileContainer fileInfo={fileInfo} />}
+            {loading ? <div className="file-loading-spinner" /> : file && <FileContainer fileInfo={fileInfo} />}
         </div>
     );
 }

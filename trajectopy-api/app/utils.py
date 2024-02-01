@@ -18,8 +18,20 @@ from app.database.schemas.settings import SettingsSchema
 UNIT_DICT = {"meter": Unit.METER, "second": Unit.SECOND}
 
 
+def try_local_frame(gt_traj: Trajectory, est_traj: Trajectory) -> None:
+    if gt_traj.pos.local_transformer is None or est_traj.pos.local_transformer is None:
+        return
+
+    est_traj.pos.local_transformer = gt_traj.pos.local_transformer
+    est_traj.pos.to_local()
+    gt_traj.pos.to_local()
+
+
 def create_plot_report(trajectories: list[Trajectory], settings: SettingsSchema):
     report_settings = to_report_settings(settings)
+
+    # this works only with the current implementation of the frontend
+    try_local_frame(trajectories[0], trajectories[1])
 
     return render_trajectories(
         trajectories=trajectories, report_settings=report_settings
@@ -32,12 +44,7 @@ def create_comparison_report(
     processing_settings = to_processing_settings(settings)
     report_settings = to_report_settings(settings)
 
-    if (
-        gt_traj.pos.local_transformer is not None
-        and est_traj.pos.local_transformer is not None
-    ):
-        est_traj.pos.local_transformer = gt_traj.pos.local_transformer
-        est_traj.pos.to_epsg(gt_traj.pos.epsg)
+    try_local_frame(gt_traj, est_traj)
 
     ate_result = ate(
         trajectory_gt=gt_traj, trajectory_est=est_traj, settings=processing_settings
