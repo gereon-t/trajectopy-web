@@ -29,6 +29,9 @@ class LocalStorage:
         Args:
             session_id (str): Unique id of the session
         """
+        if not os.path.exists(os.path.join(self.data_path, session_id)):
+            return
+
         shutil.rmtree(os.path.join(self.data_path, session_id))
 
     def write_trajectory(
