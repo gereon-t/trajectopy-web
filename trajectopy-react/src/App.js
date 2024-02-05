@@ -3,6 +3,7 @@ import './App.css';
 import Base from './components/Base';
 import React, { useState, useEffect } from 'react';
 import { createSession } from './api';
+import Footer from './components/Footer';
 
 
 const App = () => {
@@ -34,13 +35,7 @@ const App = () => {
           <Base sessionId={sessionId} />
         </div>
       </div>
-      <footer className='footer'>
-        <div className='footer-items'>
-          <a href='https://github.com/gereon-t/trajectopy-web'>gereon-t/trajectopy-web</a>
-          <div className='footer-divider'></div>
-          <a href='https://github.com/gereon-t/trajectopy'>Desktop App</a>
-        </div>
-      </footer>
+      <Footer />
     </div >
   );
 }
