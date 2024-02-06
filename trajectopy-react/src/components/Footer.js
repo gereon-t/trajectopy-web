@@ -9,7 +9,7 @@ const Footer = () => {
             <div className='footer-divider'></div>
             <a href='https://github.com/gereon-t/trajectopy'>Desktop App</a>
             <div className='footer-divider'></div>
-            <a href='https://gtombrink.de/privacy'>Privacy Policy</a>
+            <a href='/privacy'>Privacy Policy</a>
         </div>
     </footer>
 }
