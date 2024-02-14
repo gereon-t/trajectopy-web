@@ -9,16 +9,6 @@ from app.storage.protocol import Storage
 router = APIRouter()
 
 
-@router.get("/results/", response_model=list[result_schemas.ResultSchema])
-async def get_results_endpoint(trajectory_id: str, db: Session = Depends(get_db)):
-    results = result_crud.get_results(db, trajectory_id)
-
-    if results is None:
-        raise HTTPException(status_code=404, detail="Trajectory not found")
-
-    return results
-
-
 @router.delete("/results/{result_id}")
 async def delete_result_endpoint(
     result_id: str,
