@@ -2,7 +2,7 @@
     <h1>Trajectopy Web</h1>
     <h3>Simple web interface for quick trajectory comparisons</h3>
 
-This is a simple web interface for comparing trajectories. It is based on [Trajectopy](https://github.com/gereon-t/trajectopy) and implements basic functionality for comparing trajectories.
+This is a simple web interface for comparing trajectories. It is based on [Trajectopy](https://github.com/gereon-t/trajectopy) and implements basic functionality for comparing trajectories. You can explore a demo [here](https://trajectopy.xyz).
 
 
 <p align="center">
