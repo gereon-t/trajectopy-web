@@ -6,12 +6,12 @@ from trajectopy_core.trajectory import Trajectory
 from app.database import models
 from app.database.schemas import settings as settings_schemas
 from app.database.schemas import trajectory as trajectory_schemas
-from app.storage.protocol import Storage
+from app.storage.storage_protocol import StorageProtocol
 
 
 def add_trajectory(
     db: Session,
-    storage: Storage,
+    storage: StorageProtocol,
     trajectory: Trajectory,
     session_id: str,
 ) -> models.Trajectory:

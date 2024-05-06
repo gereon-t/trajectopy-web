@@ -1,6 +1,6 @@
 from trajectopy_core.alignment.result import AlignmentResult
 from trajectopy_core.definitions import Unit
-from trajectopy_core.pipelines import ate, rpe
+from trajectopy_core.evaluation.metrics import ate, rpe
 from trajectopy_core.report.single import render_single_report
 from trajectopy_core.report.trajectory import render_trajectories
 from trajectopy_core.settings.alignment import (
@@ -93,7 +93,7 @@ def to_relative_comparison_settings(
 
 def to_processing_settings(settings: SettingsSchema) -> ProcessingSettings:
     alignment_settings = AlignmentSettings(
-        estimation_of=to_alignment_estimation_settings(settings)
+        estimation_settings=to_alignment_estimation_settings(settings)
     )
     relative_comparison_settings = to_relative_comparison_settings(settings)
 

@@ -9,7 +9,7 @@ from app.database.crud import session as session_crud
 from app.database.schemas import session as session_schemas
 from app.dependencies import get_db, get_storage
 from app.expiration import check_expired_sessions
-from app.storage.protocol import Storage
+from app.storage.storage_protocol import StorageProtocol
 
 logger = logging.getLogger("root")
 
@@ -20,7 +20,7 @@ router = APIRouter()
 async def create_sesssion_endpoint(
     custom_id: str | None = None,
     db: Session = Depends(get_db),
-    storage: Storage = Depends(get_storage),
+    storage: StorageProtocol = Depends(get_storage),
 ):
     session_id = custom_id or uuid.uuid4().hex
     date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -44,7 +44,7 @@ async def create_sesssion_endpoint(
 async def delete_session_endpoint(
     session_id: str,
     db: Session = Depends(get_db),
-    storage: Storage = Depends(get_storage),
+    storage: StorageProtocol = Depends(get_storage),
 ):
     if session_crud.get_session(db, session_id) is None:
         raise HTTPException(status_code=404, detail="Session not found")

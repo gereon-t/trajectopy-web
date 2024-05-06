@@ -1,4 +1,3 @@
-import trajectopy_core.trajectory as tpy_trajectory
 from fastapi import APIRouter, Depends, HTTPException, Response, UploadFile
 from fastapi.responses import PlainTextResponse
 from sqlalchemy.orm import Session
@@ -18,7 +17,7 @@ from app.dependencies import (
     get_trajectories,
     get_trajectory,
 )
-from app.storage.protocol import Storage
+from app.storage.storage_protocol import StorageProtocol
 from app.utils import create_comparison_report, create_plot_report
 
 router = APIRouter()
@@ -51,7 +50,7 @@ async def upload_trajectory_endpoint(
     session_id: str,
     file: UploadFile,
     db: Session = Depends(get_db),
-    storage: Storage = Depends(get_storage),
+    storage: StorageProtocol = Depends(get_storage),
 ):
     if session_crud.get_session(db, session_id) is None:
         raise HTTPException(status_code=404, detail="Session not found")
@@ -62,9 +61,7 @@ async def upload_trajectory_endpoint(
         raise HTTPException(status_code=400, detail="Invalid file encoding") from exc
 
     try:
-        read_trajectory = tpy_trajectory.Trajectory.from_file(
-            input_stream, io_stream=True
-        )
+        read_trajectory = Trajectory.from_file(input_stream, io_stream=True)
         db_trajectory = trajectory_crud.add_trajectory(
             db, storage, read_trajectory, session_id
         )
@@ -79,7 +76,7 @@ async def upload_trajectory_endpoint(
 async def delete_trajectory_endpoint(
     trajectory_id: str,
     db: Session = Depends(get_db),
-    storage: Storage = Depends(get_storage),
+    storage: StorageProtocol = Depends(get_storage),
 ):
     trajectory = trajectory_crud.get_trajectory(db, trajectory_id)
 
@@ -120,7 +117,7 @@ async def compare_trajectories_endpoint(
     est_trajectory: Trajectory = Depends(get_est_trajectory),
     settings: settings_schemas.SettingsSchema = settings_schemas.SettingsSchema(),
     db: Session = Depends(get_db),
-    storage: Storage = Depends(get_storage),
+    storage: StorageProtocol = Depends(get_storage),
 ):
     if not gt_trajectory or not est_trajectory:
         raise HTTPException(status_code=404, detail="Trajectory not found")
@@ -149,7 +146,7 @@ async def plot_trajectories_endpoint(
     session_id: str,
     trajectories: list[Trajectory] = Depends(get_trajectories),
     db: Session = Depends(get_db),
-    storage: Storage = Depends(get_storage),
+    storage: StorageProtocol = Depends(get_storage),
 ):
     try:
         report = create_plot_report(

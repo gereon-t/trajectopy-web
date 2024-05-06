@@ -4,12 +4,12 @@ from sqlalchemy.orm import Session
 
 from app.database import models
 from app.database.schemas import result as result_schemas
-from app.storage.protocol import Storage
+from app.storage.storage_protocol import StorageProtocol
 
 
 def add_result(
     db: Session,
-    storage: Storage,
+    storage: StorageProtocol,
     session_id: str,
     result: result_schemas.ResultBaseSchema,
     report: str,

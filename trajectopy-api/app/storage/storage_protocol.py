@@ -1,10 +1,9 @@
 from typing import Protocol
 
-from trajectopy_core.settings.base import Settings
 from trajectopy_core.trajectory import Trajectory
 
 
-class Storage(Protocol):
+class StorageProtocol(Protocol):
     def create_session(self, session_id: str) -> None:
         """
         Adds a new session to the storage

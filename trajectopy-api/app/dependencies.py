@@ -9,7 +9,7 @@ from app.database import SessionLocal
 from app.database.crud import trajectory as trajectory_crud
 from app.storage.backends.azure import AzureStorage
 from app.storage.backends.local import LocalStorage
-from app.storage.protocol import Storage
+from app.storage.storage_protocol import StorageProtocol
 
 load_dotenv()
 
@@ -37,7 +37,7 @@ def get_db():
 
 
 def load_trajectory(
-    session_id: str, trajectory_id: str, storage: Storage
+    session_id: str, trajectory_id: str, storage: StorageProtocol
 ) -> Trajectory:
     try:
         return storage.read_trajectory(
@@ -50,7 +50,7 @@ def load_trajectory(
 def get_trajectory(
     session_id: str,
     trajectory_id: str,
-    storage: Storage = Depends(get_storage),
+    storage: StorageProtocol = Depends(get_storage),
 ) -> Trajectory:
     return load_trajectory(session_id, trajectory_id, storage)
 
@@ -58,7 +58,7 @@ def get_trajectory(
 def get_gt_trajectory(
     session_id: str,
     gt_trajectory_id: str,
-    storage: Storage = Depends(get_storage),
+    storage: StorageProtocol = Depends(get_storage),
 ) -> Trajectory:
     return load_trajectory(session_id, gt_trajectory_id, storage)
 
@@ -66,7 +66,7 @@ def get_gt_trajectory(
 def get_est_trajectory(
     session_id: str,
     est_trajectory_id: str,
-    storage: Storage = Depends(get_storage),
+    storage: StorageProtocol = Depends(get_storage),
 ) -> Trajectory:
     return load_trajectory(session_id, est_trajectory_id, storage)
 
@@ -74,7 +74,7 @@ def get_est_trajectory(
 def get_trajectories(
     trajectory_ids: list[str],
     db: Session = Depends(get_db),
-    storage: Storage = Depends(get_storage),
+    storage: StorageProtocol = Depends(get_storage),
 ) -> list[Trajectory]:
     trajectories = []
 

@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 
 from app.database import models
 from app.database.crud import session as session_crud
-from app.storage.protocol import Storage
+from app.storage.storage_protocol import StorageProtocol
 
 logger = logging.getLogger("root")
 
@@ -18,7 +18,7 @@ def is_session_expired(session: models.Session) -> bool:
     ) > SESSION_TIMEOUT
 
 
-def check_expired_sessions(db: Session, storage: Storage):
+def check_expired_sessions(db: Session, storage: StorageProtocol):
     for session in session_crud.get_all_sessions(db):
         if is_session_expired(session):
             logger.info("Session %s expired", session.id)
