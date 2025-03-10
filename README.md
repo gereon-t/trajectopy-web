@@ -14,6 +14,10 @@ This is a simple web interface for comparing trajectories. It is based on [Traje
 
 ## Running the image
 
+To run Trajectopy Web, you can use the Docker image available on Docker Hub. The image is available at `gtombrink/trajectopy-web`.
+
 ```bash	
 docker run -p 8000:8000 gtombrink/trajectopy-web
 ```
+
+Trajectopy Web will be available at `http://localhost:8000`.
