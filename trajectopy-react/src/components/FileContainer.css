@@ -1,0 +1,56 @@
+.file-container {
+    margin-top: 20px;
+}
+
+.file-symbols {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+.file-container-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    border-bottom: 1px solid rgb(204, 204, 204);
+    padding: 5px;
+}
+
+.file-name {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.file-info-container {
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 5px;
+    background-color: white;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+
+.file-info-name {
+    font-size: 14px;
+    font-weight: 400;
+    margin-right: 25px;
+}
+
+.file-info-value {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.file-info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+.file-status-icon {
+    height: 20px;
+    margin-right: 5px;
+}

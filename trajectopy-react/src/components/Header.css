@@ -1,0 +1,46 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 65px;
+    background-color: white;
+    border-bottom: 1px solid #e8e8e8;
+    z-index: 1000;
+}
+
+.trajectopy-logo {
+    height: 40px;
+}
+
+.trajectopy-text {
+    font-size: 20px;
+    font-weight: 400;
+    margin-left: 8px;
+    margin-top: 4px;
+    text-decoration: none;
+    color: black;
+}
+
+.app-name {
+    font-size: 20px;
+    font-weight: 400;
+    text-decoration: none;
+    color: black;
+}
+
+.left-section {
+    width: 150px;
+    display: flex;
+    align-items: center;
+    margin-left: 24px;
+    text-decoration: none;
+}
+
+.right-section {
+    margin-right: 24px;
+}

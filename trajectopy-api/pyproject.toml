@@ -1,0 +1,26 @@
+[project]
+name = "trajectopy-api"
+version = "0.1.0"
+description = "Web API for trajectory evaluation"
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi[standard]>=0.115.11",
+    "python-dotenv>=1.0.1",
+    "scipy==1.14.1",
+    "sqlalchemy>=2.0.38",
+    "trajectopy>=2.4.5",
+    "uvicorn>=0.34.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["app"]
+
+
+[project.scripts]
+tpy_api = "main:main"

@@ -1,0 +1,18 @@
+.setting-row {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.settings-label {
+    font-size: 15px;
+    font-weight: 400;
+    margin-right: 25px;
+}
+
+.settings-input {
+    text-align: right;
+    font-size: 15px;
+    font-family: inherit;
+    max-width: 200px;
+}

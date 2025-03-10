@@ -1,0 +1,8 @@
+test
+__pycache__
+*.pyc
+.vscode
+.venv
+logs/
+data/
+database.db

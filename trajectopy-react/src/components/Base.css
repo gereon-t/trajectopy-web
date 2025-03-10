@@ -1,0 +1,133 @@
+.base-container {
+    margin-top: 85px;
+}
+
+.content {
+    margin: 20px;
+}
+
+.traj-content {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+.traj-title {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.processing-button-row {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.button {
+    font-family: inherit;
+    font-weight: 300;
+    background-color: rgb(55, 115, 165);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 5px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    height: 36px;
+}
+
+.button:hover {
+    background-color: rgb(21, 102, 168);
+}
+
+.button:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+}
+
+.button-divider {
+    margin-left: 10px;
+}
+
+.trajectory-divider {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.loading-spinner,
+.file-loading-spinner {
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-top: 3px solid rgb(55, 115, 165);
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    animation: spin 1s linear infinite;
+    margin-right: 20px;
+}
+
+.file-loading-spinner {
+    width: 15px;
+    height: 15px;
+    margin: auto;
+    margin-top: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-top: 2px solid rgb(55, 115, 165);
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .traj-content {
+        padding: 10px;
+    }
+
+    .traj-title {
+        font-size: 18px;
+    }
+
+    .button {
+        padding: 5px 10px;
+        font-size: 12px;
+        height: 30px;
+        text-align: center;
+    }
+
+    .button-divider {
+        margin-left: 5px;
+    }
+
+
+
+    .loading-spinner {
+        border: 2px solid rgba(0, 0, 0, 0.1);
+        border-top: 2px solid rgb(55, 115, 165);
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+        animation: spin 1s linear infinite;
+        margin-right: 10px;
+    }
+}
