@@ -608,11 +608,11 @@ wheels = [
 
 [[package]]
 name = "narwhals"
-version = "1.29.1"
+version = "1.30.0"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/a7/17/7d35094da0820ae941d8ce51842f253da36c6f95360ea0afabfc18bc02c6/narwhals-1.29.1.tar.gz", hash = "sha256:c408acf09e90c116f247cf34f24a3a89d147e3e235b1d3c708cfd1960baf320a", size = 251464 }
+sdist = { url = "https://files.pythonhosted.org/packages/c4/98/be6d35e8869ab9403fa25dc3458e7af6ce36dac2873c74c7274a59b21958/narwhals-1.30.0.tar.gz", hash = "sha256:0c50cc67a5404da501302882838ec17dce51703d22cd8ad89162d6f60ea0bb19", size = 253461 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/f1/22/380df533b08a57bc9013bb5714f33c571e1447828d83213a66adaefc0a04/narwhals-1.29.1-py3-none-any.whl", hash = "sha256:2f68cfbb2562672c4dfa54f158ed8c2828e9920ef784981cd9114e419c444216", size = 308220 },
+    { url = "https://files.pythonhosted.org/packages/e4/97/bde1e4cf1e0fe0d4c70f750b57d152c0ecb04bb35de7aa7950a5756a71d6/narwhals-1.30.0-py3-none-any.whl", hash = "sha256:443aa0a1abfae89bc65a6b888a7e310a03d1818bfb2ccd61c150199a5f954c17", size = 313611 },
 ]
 
 [[package]]
@@ -782,19 +782,6 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/9c/80/761c14012d6daf18e12b6d1e4f6b218e999bcceb694d7a9b180154f9e4db/plotly-6.0.0.tar.gz", hash = "sha256:c4aad38b8c3d65e4a5e7dd308b084143b9025c2cc9d5317fc1f1d30958db87d3", size = 8111782 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/0e/77/a946f38b57fb88e736c71fbdd737a1aebd27b532bda0779c137f357cf5fc/plotly-6.0.0-py3-none-any.whl", hash = "sha256:f708871c3a9349a68791ff943a5781b1ec04de7769ea69068adcd9202e57653a", size = 14805949 },
-]
-
-[[package]]
-name = "pointset"
-version = "0.1.5"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "numpy" },
-    { name = "pyproj" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/66/de/12c7175431b52c139e38b5074f7c4e806de38cb0605a6814cad5777e482d/pointset-0.1.5.tar.gz", hash = "sha256:34c2bdf9a0d0ba5cd62f0e68413045d6857936ccc1b00b20be11036cdd98a8b4", size = 9754 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/b4/90/4cbe32ae2641b9babcc703a06be96085801d975bf3d1e9b0e37681623fde/pointset-0.1.5-py3-none-any.whl", hash = "sha256:09638aa775614c5d978ce147d56b040205a8833136341361ed5808659af81cd2", size = 8775 },
 ]
 
 [[package]]
@@ -1191,19 +1178,19 @@ wheels = [
 
 [[package]]
 name = "starlette"
-version = "0.46.0"
+version = "0.46.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "anyio" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/44/b6/fb9a32e3c5d59b1e383c357534c63c2d3caa6f25bf3c59dd89d296ecbaec/starlette-0.46.0.tar.gz", hash = "sha256:b359e4567456b28d473d0193f34c0de0ed49710d75ef183a74a5ce0499324f50", size = 2575568 }
+sdist = { url = "https://files.pythonhosted.org/packages/04/1b/52b27f2e13ceedc79a908e29eac426a63465a1a01248e5f24aa36a62aeb3/starlette-0.46.1.tar.gz", hash = "sha256:3c88d58ee4bd1bb807c0d1acb381838afc7752f9ddaec81bbe4383611d833230", size = 2580102 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/41/94/8af675a62e3c91c2dee47cf92e602cfac86e8767b1a1ac3caf1b327c2ab0/starlette-0.46.0-py3-none-any.whl", hash = "sha256:913f0798bd90ba90a9156383bcf1350a17d6259451d0d8ee27fc0cf2db609038", size = 71991 },
+    { url = "https://files.pythonhosted.org/packages/a0/4b/528ccf7a982216885a1ff4908e886b8fb5f19862d1962f56a3fce2435a70/starlette-0.46.1-py3-none-any.whl", hash = "sha256:77c74ed9d2720138b25875133f3a2dae6d854af2ec37dceb56aef370c1d8a227", size = 71995 },
 ]
 
 [[package]]
 name = "trajectopy"
-version = "2.4.5"
+version = "2.5.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "autograd" },
@@ -1213,15 +1200,14 @@ dependencies = [
     { name = "numpy" },
     { name = "pandas" },
     { name = "plotly" },
-    { name = "pointset" },
     { name = "pyproj" },
     { name = "rich" },
     { name = "rosbags" },
     { name = "scipy" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/c6/92/6885e2d9eaa730c7cde3b455d8eb6ba0d2803af098b6c0611de075dfd3bf/trajectopy-2.4.5.tar.gz", hash = "sha256:aac1bd80f4b0d1262fde66aa652abfe56d745f951ff122364c973899d6b1a880", size = 23771209 }
+sdist = { url = "https://files.pythonhosted.org/packages/1a/c9/0ba6e9ebd2d88a11b0ecf4059727c5fd945d5a45243412d085f2487e4f0e/trajectopy-2.5.1.tar.gz", hash = "sha256:fa9c06e5fe1f20b31ba329bf392cf8271b756d1b6a3a94de9d8506670aed889d", size = 23771793 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/1f/b6/080164b46d4bc1a764c41dfbc1ff216bb318b89b2af14bd7f58a8ccf5127/trajectopy-2.4.5-py3-none-any.whl", hash = "sha256:dbd11e0d953c45ec4670113c49bd095a8204e0b688dc008dfbf0365f8f4d703f", size = 413300 },
+    { url = "https://files.pythonhosted.org/packages/86/97/aee932fd99dff310759a037dc2aa6da2e37376af2760284c2b0b67372a28/trajectopy-2.5.1-py3-none-any.whl", hash = "sha256:cbe956d05f1037b2a2529fa054bba91d31018dea996084bfb52114876aa64af1", size = 411316 },
 ]
 
 [[package]]
