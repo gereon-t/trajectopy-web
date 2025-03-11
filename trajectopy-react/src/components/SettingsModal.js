@@ -98,6 +98,10 @@ const SettingsRow = ({ settingName, value, onUpdateSettings }) => {
 
     } else if (settingName === 'rpe_use_all_pairs') {
         tooltip = 'Use all (overlapping) pairs for Relative Pose Error calculation';
+    } else if (settingName === 'plot_on_map') {
+        tooltip = 'Plot the trajectories on the map. Requires a georeferenced trajectory, internet connection and a mapbox access token';
+    } else if (settingName === 'map_style') {
+        tooltip = 'Map style for plotting the trajectories. Choices: "basic", "carto-darkmatter", "carto-darkmatter-nolabels", "carto-positron", "carto-positron-nolabels", "carto-voyager", "carto-voyager-nolabels", "dark", "light", "open-street-map", "outdoors", "satellite", "satellite-streets", "streets", "white-bg"';
     }
 
 

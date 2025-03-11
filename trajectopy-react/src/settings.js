@@ -13,4 +13,6 @@ export const defaultSettings = {
     "rpe_distance_step": 100,
     "rpe_distance_unit": "meter",
     "rpe_use_all_pairs": true,
+    "plot_on_map": true,
+    "map_style": "open-street-map"
 };

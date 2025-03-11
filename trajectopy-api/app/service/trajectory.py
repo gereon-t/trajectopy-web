@@ -2,8 +2,7 @@ import uuid
 
 from app import dtos
 from app.dependencies import get_storage
-from app.exceptions import (SessionNotFoundException,
-                            TrajectoryNotFoundException)
+from app.exceptions import SessionNotFoundException, TrajectoryNotFoundException
 from app.repository import models
 from app.repository.result import ResultRepository
 from app.repository.session import SessionRepository
@@ -101,10 +100,14 @@ class TrajectoryService:
         self,
         session_id: str,
         trajectory_ids: list[str],
+        plot_on_map: bool = False,
+        map_style: str = "open-street-map",
     ) -> dtos.ResultDTO:
         trajectories = [self.storage.read_trajectory(session_id, traj_id) for traj_id in trajectory_ids]
 
-        report = create_plot_report(trajectories=trajectories, settings=dtos.SettingsDTO())
+        report = create_plot_report(
+            trajectories=trajectories, settings=dtos.SettingsDTO(plot_on_map=plot_on_map, map_style=map_style)
+        )
         db_result = self.result_respository.create_result(
             models.Result(
                 name="Trajectory plot",

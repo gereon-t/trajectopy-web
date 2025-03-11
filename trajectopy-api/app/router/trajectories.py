@@ -67,6 +67,8 @@ async def compare_trajectories_endpoint(
 async def plot_trajectories_endpoint(
     session_id: str,
     trajectory_ids: list[str],
+    plot_on_map: bool = False,
+    map_style: str = "open-street-map",
     trajectory_service: TrajectoryService = Depends(TrajectoryService),
 ) -> dtos.ResultDTO:
-    return trajectory_service.plot_trajectories(session_id, trajectory_ids)
+    return trajectory_service.plot_trajectories(session_id, trajectory_ids, plot_on_map, map_style)

@@ -51,9 +51,11 @@ export const compareTrajectories = async (sessionId, estFileId, gtFileId, settin
     return response.json();
 };
 
-export const plotTrajectory = async (sessionId, trajectoryIds) => {
+export const plotTrajectory = async (sessionId, trajectoryIds, settings) => {
     const response = await fetch(ENDPOINT_URL + '/trajectories/plot?' + new URLSearchParams({
-        session_id: sessionId
+        session_id: sessionId,
+        plot_on_map: settings.plot_on_map,
+        map_style: settings.map_style
     }), {
         method: 'POST', headers: {
             'Content-Type': 'application/json',

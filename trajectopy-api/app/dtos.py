@@ -25,6 +25,8 @@ class SettingsDTO(BaseModel):
     rpe_distance_step: float = 100.0
     rpe_distance_unit: str = "meter"
     rpe_use_all_pairs: bool = True
+    plot_on_map: bool = False
+    map_style: str = "open-street-map"
 
     class Config:
         from_attributes = True
