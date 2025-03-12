@@ -1,19 +1,7 @@
 services:
-  frontend:
-    build: ./trajectopy-react
-
-  backend:
-    build: ./trajectopy-api
-
-    volumes:
-      - ./data:/app/data
-
-  reverse-proxy:
-    image: nginx
-    depends_on:
-      - frontend
-      - backend
+  trajectopy-web:
+    image: gtombrink/trajectopy-web:latest
     ports:
-      - "80:80"
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - "8000:8000"
+    environment:
+      - MAPBOX_TOKEN=${MAPBOX_TOKEN}
