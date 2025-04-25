@@ -9,6 +9,10 @@
     flex-direction: row;
 }
 
+.trash-icon {
+    cursor: pointer;
+}
+
 .file-container-header {
     display: flex;
     justify-content: space-between;

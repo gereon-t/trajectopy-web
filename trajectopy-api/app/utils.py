@@ -58,16 +58,16 @@ def to_alignment_estimation_settings(
     settings: dtos.SettingsDTO,
 ) -> tpy.AlignmentEstimationSettings:
     return tpy.AlignmentEstimationSettings(
-        trans_x=settings.similarity_transformation,
-        trans_y=settings.similarity_transformation,
-        trans_z=settings.similarity_transformation,
-        rot_x=settings.similarity_transformation,
-        rot_y=settings.similarity_transformation,
-        rot_z=settings.similarity_transformation,
+        translation_x=settings.similarity_transformation,
+        translation_y=settings.similarity_transformation,
+        translation_z=settings.similarity_transformation,
+        rotation_x=settings.similarity_transformation,
+        rotation_y=settings.similarity_transformation,
+        rotation_z=settings.similarity_transformation,
         scale=settings.scale_estimation,
-        lever_x=settings.lever_arm_estimation,
-        lever_y=settings.lever_arm_estimation,
-        lever_z=settings.lever_arm_estimation,
+        leverarm_x=settings.lever_arm_estimation,
+        leverarm_y=settings.lever_arm_estimation,
+        leverarm_z=settings.lever_arm_estimation,
         time_shift=settings.time_shift_estimation,
         sensor_rotation=settings.sensor_rotation_estimation,
     )
@@ -101,7 +101,7 @@ def to_report_settings(settings: dtos.SettingsDTO) -> tpy.ReportSettings:
     return tpy.ReportSettings(
         ate_unit_is_mm=settings.ate_in_mm,
         directed_ate=settings.directed_ate,
-        scatter_mapbox=settings.plot_on_map,
+        scatter_plot_on_map=settings.plot_on_map,
         scatter_mapbox_style=settings.map_style,
         scatter_mapbox_token=os.getenv("MAPBOX_TOKEN"),
     )

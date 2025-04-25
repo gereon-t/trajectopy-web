@@ -93,7 +93,7 @@ const FileUpload = ({ sessionId, setFileId }) => {
                 style={{ display: 'none' }}
                 onChange={handleFileInputChange}
             />
-            {loading ? <div className="file-loading-spinner" /> : file && <FileContainer fileInfo={fileInfo} />}
+            {loading ? <div className="file-loading-spinner" /> : file && <FileContainer fileInfo={fileInfo} setFile={setFile} />}
         </div>
     );
 }

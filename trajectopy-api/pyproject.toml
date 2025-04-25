@@ -10,7 +10,7 @@ dependencies = [
     "python-dotenv>=1.0.1",
     "scipy==1.14.1",
     "sqlalchemy>=2.0.38",
-    "trajectopy>=2.4.5",
+    "trajectopy>=3.0.0",
     "uvicorn>=0.34.0",
 ]
 
