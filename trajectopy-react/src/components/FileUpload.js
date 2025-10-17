@@ -72,6 +72,13 @@ const FileUpload = ({ sessionId, setFileId }) => {
         }
     };
 
+    React.useEffect(() => {
+        if (file === null) {
+            setFileId(null);
+            setFileInfo({});
+        }
+    }, [file, setFileId]);
+
     const fileInputRef = React.createRef();
 
     return (
