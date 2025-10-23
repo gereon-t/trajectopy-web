@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getSessions, deleteSession } from '../api';
 import './SessionSelector.css';
+import icon from "../icon.png";
 
 const SessionSelector = ({ onCreateNew, onLoadOld, onError }) => {
     const [sessions, setSessions] = useState([]);
@@ -45,6 +46,7 @@ const SessionSelector = ({ onCreateNew, onLoadOld, onError }) => {
     return (
         <div className="session-selector-container">
             <div className="session-box">
+                <img src={icon} alt="Trajectopy Logo" className="logo" />
                 <h2>Welcome to Trajectopy</h2>
                 <p>Start a new session or load a previous one.</p>
 

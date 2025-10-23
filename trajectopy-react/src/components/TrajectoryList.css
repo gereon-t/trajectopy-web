@@ -34,7 +34,7 @@
 }
 
 .traj-drop-zone.active {
-    border-color: #007bff;
+    border-color: rgb(55, 115, 165);
     background: #f0f8ff;
 }
 
@@ -119,9 +119,9 @@
 }
 
 .traj-item-actions button.btn-select.active {
-    background: #007bff;
+    background: rgb(55, 115, 165);
     color: white;
-    border-color: #007bff;
+    border-color: rgb(55, 115, 165);
 }
 
 .compare-button {
