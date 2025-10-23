@@ -8,6 +8,7 @@ class Session(Base):
 
     id = Column(String, primary_key=True, index=True)
     date = Column(String, index=True)
+    name = Column(String)
 
     trajectories = relationship("Trajectory", back_populates="session")
 

@@ -27,3 +27,6 @@ class ResultRepository:
     def delete_result(self, result_id: str) -> None:
         self.db.query(models.Result).filter_by(id=result_id).delete()
         self.db.commit()
+
+    def get_results_of_session(self, session_id: str) -> list[models.Result]:
+        return self.db.query(models.Result).filter(models.Result.session_id == session_id).all()

@@ -27,3 +27,6 @@ class ResultService:
         result = self.result_repository.get_result(result_id)
         report = self.storage.read_result(result.session_id, result.id)
         return Response(report, media_type="text/html")
+
+    def get_results(self, session_id: str) -> list[ResultDTO]:
+        return [ResultDTO.model_validate(r) for r in self.result_repository.get_results_of_session(session_id)]

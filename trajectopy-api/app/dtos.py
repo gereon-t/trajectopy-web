@@ -52,6 +52,7 @@ class TrajectoryDTO(CreateTrajectoryDTO):
 
 class SessionDTO(BaseModel):
     id: str
+    name: str
     date: str
     trajectories: list[TrajectoryDTO] = []
 

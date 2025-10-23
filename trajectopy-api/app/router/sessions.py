@@ -11,10 +11,10 @@ router = APIRouter(prefix="/sessions", tags=["Sessions"])
 
 @router.post("/create", status_code=201)
 async def create_sesssion_endpoint(
-    custom_id: str | None = None,
+    name: str | None = None,
     session_service: SessionService = Depends(SessionService),
 ) -> SessionDTO:
-    return session_service.create_session(custom_id)
+    return session_service.create_session(name)
 
 
 @router.delete("/delete", status_code=204)

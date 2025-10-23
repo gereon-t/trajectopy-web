@@ -21,3 +21,10 @@ async def render_result_endpoint(
     result_service: ResultService = Depends(ResultService),
 ) -> Response:
     return result_service.render_result(result_id)
+
+
+@router.get("/", status_code=200)
+async def get_results_endpoint(
+    session_id: str, result_service: ResultService = Depends(ResultService)
+) -> list[ResultDTO]:
+    return result_service.get_results(session_id)

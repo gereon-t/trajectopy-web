@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import TrajectoryList from './TrajectoryList';
 import ResultList from './ResultList';
 import MapView from './MapView';
@@ -6,14 +6,14 @@ import ErrorModal from './ErrorModal';
 import SettingsModal from './SettingsModal';
 import { defaultSettings } from '../settings';
 import { deleteTrajectory, deleteReport, compareTrajectories, ENDPOINT_URL } from '../api';
+import { colorCycle } from '../utils';
 import './Base.css';
 
-const colorCycle = ['blue', 'red', 'green', 'orange', 'purple', 'cyan', 'magenta'];
 
-const Base = ({ sessionId }) => {
+const Base = ({ sessionId, initialTrajectories, initialResults }) => {
 
-    const [trajectories, setTrajectories] = useState([]);
-    const [results, setResults] = useState([]);
+    const [trajectories, setTrajectories] = useState(initialTrajectories);
+    const [results, setResults] = useState(initialResults);
 
     const [isProcessing, setIsProcessing] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
@@ -128,7 +128,10 @@ const Base = ({ sessionId }) => {
         }
     };
 
-    const visibleTrajectories = trajectories.filter(t => t.isVisible);
+    const visibleTrajectories = useMemo(() =>
+        trajectories.filter(t => t.isVisible),
+        [trajectories]
+    );
 
     return (
         <div className='base-container-new'>

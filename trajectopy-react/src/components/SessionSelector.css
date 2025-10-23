@@ -1,0 +1,125 @@
+.session-selector-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    gap: 30px;
+    padding: 20px;
+    background-color: #f4f7f6;
+}
+
+.session-box {
+    width: 100%;
+    max-width: 600px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.session-box h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.session-box p {
+    text-align: center;
+    color: #555;
+}
+
+.new-session-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.session-list {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+.session-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    width: 100%;
+    border: none;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    text-align: left;
+}
+
+.session-item-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex-grow: 1;
+    overflow: hidden;
+    text-align: left;
+}
+
+.session-item:last-child {
+    border-bottom: none;
+}
+
+.session-item:hover {
+    background: #f9f9f9;
+}
+
+.session-item .session-id {
+    font-weight: 500;
+    font-family: monospace;
+    color: #333;
+}
+
+.session-item .session-date {
+    font-size: 14px;
+    color: #777;
+}
+
+.session-name-input {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.session-name-input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, .25);
+}
+
+.session-item .session-name {
+    font-weight: 500;
+    font-family: monospace;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.session-delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    margin-left: 15px;
+    font-size: 16px;
+    border-radius: 50%;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.session-delete-btn:hover {
+    background-color: #f0f0f0;
+}

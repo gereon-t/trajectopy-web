@@ -1,19 +1,30 @@
-export const ENDPOINT_URL = 'http://127.0.0.1:8000';
+export const ENDPOINT_URL = '';
 
-export const createSession = async () => {
-    const response = await fetch(ENDPOINT_URL + '/sessions/create', {
+export const createSession = async (name = null) => {
+    let url = ENDPOINT_URL + '/sessions/create';
+
+    if (name && name.trim() !== '') {
+        url += `?name=${encodeURIComponent(name)}`;
+    }
+
+    const response = await fetch(url, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
     });
 
-    if (response.status !== 201) {
-        const errorData = await response.json();
-        throw new Error(errorData.message);
+    if (!response.ok) {
+        let errorData;
+        try {
+            errorData = await response.json();
+        } catch (e) {
+            errorData = { message: 'Failed to create session. Unknown server error.' };
+        }
+        throw new Error(errorData.message || 'Failed to create session.');
     }
 
-    return response.json();
+    return await response.json();
 };
 
 export const uploadFile = async (file, session_id) => {
@@ -119,4 +130,53 @@ export const deleteReport = async (reportId) => {
         throw new Error(errorData.message);
     }
     return
+};
+
+export const getSessions = async () => {
+    const response = await fetch(ENDPOINT_URL + '/sessions/', {
+        method: 'GET',
+    });
+    if (!response.ok) {
+        throw new Error('Failed to fetch sessions.');
+    }
+    return await response.json();
+};
+
+
+export const getResults = async (sessionId) => {
+    const response = await fetch(ENDPOINT_URL + `/results/?session_id=${sessionId}`, {
+        method: 'GET',
+    });
+    if (!response.ok) {
+        throw new Error('Failed to fetch results.');
+    }
+    return await response.json();
+};
+
+
+export const getTrajectoryPositions = async (sessionId, trajectoryId) => {
+    const response = await fetch(ENDPOINT_URL + `/trajectories/positions/${sessionId}/${trajectoryId}`, {
+        method: 'GET',
+    });
+    if (!response.ok) {
+        throw new Error(`Failed to fetch positions for trajectory ${trajectoryId}.`);
+    }
+    return await response.json();
+};
+
+export const deleteSession = async (sessionId) => {
+    const response = await fetch(ENDPOINT_URL + `/sessions/delete?session_id=${encodeURIComponent(sessionId)}`, {
+        method: 'DELETE',
+    });
+
+    if (!response.ok) {
+        let errorData;
+        try {
+            errorData = await response.json();
+        } catch (e) {
+            errorData = { message: 'Failed to delete session. Unknown server error.' };
+        }
+        throw new Error(errorData.message || 'Failed to delete session.');
+    }
+    return;
 };

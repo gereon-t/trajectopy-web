@@ -1,0 +1,1 @@
+export const colorCycle = ['blue', 'red', 'green', 'orange', 'purple', 'cyan', 'magenta'];
