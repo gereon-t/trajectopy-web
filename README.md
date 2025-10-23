@@ -14,14 +14,6 @@ ATE and RPE error report:
   <img style="border-radius: 10px;" src=.images/kitti.png>
 </p>
 
-Trajectory plot on map using [Mapbox](https://www.mapbox.com/):
-
-<p align="center">
-  <img style="border-radius: 10px;" src=.images/plot.png>
-</p>
-
-</div>
-
 
 ## Running the image
 
