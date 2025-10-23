@@ -23,7 +23,7 @@ models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Trajectopy API", version="0.1.0", redoc_url=None)
 
-app.mount("/static", StaticFiles(directory="frontend/build/static"), name="static")
+# app.mount("/static", StaticFiles(directory="frontend/build/static"), name="static")
 
 allowed_origins = ["http://frontend", "http://localhost:3000"]
 
@@ -44,10 +44,10 @@ app.include_router(sessions.router)
 app.include_router(settings.router)
 
 
-@app.get("/{full_path:path}")
-async def serve_react_app(full_path: str):
-    index_file = os.path.join("frontend", "build", "index.html")
-    return FileResponse(index_file)
+# @app.get("/{full_path:path}")
+# async def serve_react_app(full_path: str):
+#     index_file = os.path.join("frontend", "build", "index.html")
+#     return FileResponse(index_file)
 
 
 def main():

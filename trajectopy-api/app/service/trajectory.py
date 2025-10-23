@@ -37,6 +37,28 @@ class TrajectoryService:
     def get_trajectory(self, trajectory_id: str) -> dtos.TrajectoryDTO:
         return dtos.TrajectoryDTO.model_validate(self.trajectory_repository.get_trajectory(trajectory_id))
 
+    def get_trajectory_positions(
+        self,
+        session_id: str,
+        trajectory_id: str,
+        epsg: int = 4326,
+    ) -> dtos.TrajectoryPositionsDTO:
+        trajectory = self.storage.read_trajectory(session_id=session_id, trajectory_id=trajectory_id)
+
+        if trajectory.pos.local_transformer is None:
+            epsg = 0
+
+        if epsg != trajectory.pos.epsg:
+            trajectory.pos.to_epsg(epsg)
+
+        xy = [[p[0], p[1]] for p in trajectory.pos.xyz]
+
+        return dtos.TrajectoryPositionsDTO(
+            trajectory_id=trajectory_id,
+            epsg=epsg,
+            positions=xy,
+        )
+
     def upload_trajectory(
         self,
         session_id: str,

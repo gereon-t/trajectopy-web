@@ -57,3 +57,12 @@ class SessionDTO(BaseModel):
 
     class Config:
         from_attributes = True
+
+
+class TrajectoryPositionsDTO(BaseModel):
+    trajectory_id: str
+    epsg: int
+    positions: list[list[float]]
+
+    class Config:
+        from_attributes = True

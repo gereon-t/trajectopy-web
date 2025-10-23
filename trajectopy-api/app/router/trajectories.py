@@ -38,13 +38,23 @@ async def delete_trajectory_endpoint(
     trajectory_service.delete_trajectory(trajectory_id)
 
 
-@router.get("/trajectories/download/{trajectory_id}")
+@router.get("/download/{trajectory_id}")
 async def download_trajectory_endpoint(
     session_id: str,
     trajectory_id: str,
     trajectory_service: TrajectoryService = Depends(TrajectoryService),
 ) -> PlainTextResponse:
     return trajectory_service.download_trajectory(session_id=session_id, trajectory_id=trajectory_id)
+
+
+@router.get("/positions/{session_id}/{trajectory_id}")
+async def get_trajectory_positions_endpoint(
+    session_id: str,
+    trajectory_id: str,
+    trajectory_service: TrajectoryService = Depends(TrajectoryService),
+    epsg: int = 4326,
+) -> dtos.TrajectoryPositionsDTO:
+    return trajectory_service.get_trajectory_positions(session_id=session_id, trajectory_id=trajectory_id, epsg=epsg)
 
 
 @router.post("/compare", status_code=201)

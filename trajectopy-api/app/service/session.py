@@ -4,8 +4,7 @@ from datetime import datetime, timedelta
 
 from app.dependencies import get_storage
 from app.dtos import SessionDTO
-from app.exceptions import (SessionAlreadyExistsException,
-                            SessionNotFoundException)
+from app.exceptions import SessionAlreadyExistsException, SessionNotFoundException
 from app.repository.models import Session
 from app.repository.session import SessionRepository
 from app.storage import StorageProtocol
@@ -57,3 +56,6 @@ class SessionService:
 
     def is_session_expired(self, session: Session) -> bool:
         return (datetime.now() - datetime.strptime(session.date, "%Y-%m-%d %H:%M:%S")) > SESSION_TIMEOUT
+
+    def get_sessions(self) -> list[SessionDTO]:
+        return [SessionDTO.model_validate(s) for s in self.session_repository.get_all_sessions()]

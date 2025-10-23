@@ -55,7 +55,6 @@ const SettingsRow = ({ settingName, value, onUpdateSettings }) => {
         />
     }
 
-    // Add tooltip for settings
     let tooltip;
     if (settingName === 'ate_in_mm') {
         tooltip = 'Absolute Trajectory Error in millimeters';

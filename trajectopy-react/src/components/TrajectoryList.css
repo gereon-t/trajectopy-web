@@ -1,0 +1,202 @@
+.traj-list-wrapper {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.traj-list-header {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-weight: 400;
+    font-size: 20px;
+    color: #333;
+    flex-shrink: 0;
+}
+
+.add-traj-button {
+    width: 100%;
+    margin-bottom: 10px;
+    flex-shrink: 0;
+}
+
+.traj-drop-zone {
+    width: 100%;
+    padding: 10px;
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    text-align: center;
+    background: #f9f9f9;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.traj-drop-zone.active {
+    border-color: #007bff;
+    background: #f0f8ff;
+}
+
+.traj-drop-zone p {
+    margin: 0;
+    font-size: 13px;
+    color: #777;
+    pointer-events: none;
+}
+
+.upload-error {
+    font-size: 13px;
+    color: red;
+    margin-top: 8px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.traj-list-items {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    flex-grow: 1;
+    overflow-y: auto;
+
+    padding-bottom: 10px;
+    min-height: 50px;
+}
+
+.no-trajectories {
+    font-style: italic;
+    color: #888;
+    padding: 10px 0;
+    display: block;
+}
+
+.list-loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: #555;
+    font-style: italic;
+}
+
+
+.traj-item-name {
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 10px;
+    flex-grow: 1;
+}
+
+.traj-item-actions {
+    display: flex;
+    gap: 5px;
+    flex-shrink: 0;
+}
+
+.traj-item-actions button {
+    padding: 4px 6px;
+    font-size: 12px;
+    border: none;
+    background: #f0f0f0;
+    cursor: pointer;
+    border-radius: 3px;
+    line-height: 1;
+}
+
+.traj-item-actions button:hover {
+    background: #e0e0e0;
+}
+
+.traj-item-actions button.btn-select {
+    font-weight: bold;
+    border: 1px solid #ccc;
+    min-width: 32px;
+}
+
+.traj-item-actions button.btn-select.active {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.compare-button {
+    width: 100%;
+    margin-top: 15px;
+    flex-shrink: 0;
+}
+
+.traj-header-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    flex-shrink: 0;
+}
+
+
+.traj-item-container {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+
+.traj-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.traj-item-header:hover {
+    background-color: #f9f9f9;
+}
+
+
+.expand-icon {
+    font-size: 10px;
+    margin-right: 8px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.expand-icon.expanded {
+    transform: rotate(90deg);
+}
+
+.traj-item-header .traj-item-name {
+    margin-right: 10px;
+}
+
+.traj-item-details {
+    padding: 10px 15px 15px 15px;
+    background: #fdfdfd;
+    border-top: 1px solid #eee;
+    margin: 0 1px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+.detail-key {
+    font-weight: 500;
+    color: #555;
+    margin-right: 10px;
+}
+
+.detail-value {
+    color: #000;
+    font-family: monospace;
+}

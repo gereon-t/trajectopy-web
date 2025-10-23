@@ -20,3 +20,8 @@ async def create_sesssion_endpoint(
 @router.delete("/delete", status_code=204)
 async def delete_session_endpoint(session_id: str, session_service: SessionService = Depends(SessionService)) -> None:
     session_service.delete_session(session_id)
+
+
+@router.get("/", status_code=200)
+async def get_sessions_endpoint(session_service: SessionService = Depends(SessionService)) -> list[SessionDTO]:
+    return session_service.get_sessions()

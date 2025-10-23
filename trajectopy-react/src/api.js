@@ -1,4 +1,4 @@
-export const ENDPOINT_URL = '';
+export const ENDPOINT_URL = 'http://127.0.0.1:8000';
 
 export const createSession = async () => {
     const response = await fetch(ENDPOINT_URL + '/sessions/create', {
@@ -29,7 +29,24 @@ export const uploadFile = async (file, session_id) => {
         throw new Error(errorData.message);
     }
 
-    return response.json();
+    const firstResponseData = await response.json();
+
+    const trajectoryId = firstResponseData.id;
+    const trajectoryResponse = await fetch(ENDPOINT_URL + `/trajectories/positions/${session_id}/${trajectoryId}`
+        , {
+            method: 'GET',
+        });
+
+    if (trajectoryResponse.status !== 200) {
+        const errorData = await trajectoryResponse.json();
+        throw new Error(errorData.message);
+    }
+
+    // merge both responses
+    const trajectoryData = await trajectoryResponse.json();
+    const mergedData = { ...firstResponseData, ...trajectoryData };
+
+    return mergedData;
 };
 
 
@@ -80,4 +97,26 @@ export const getReport = async (reportId) => {
     }
 
     return response.json();
+};
+
+export const deleteTrajectory = async (trajectoryId) => {
+    const response = await fetch(ENDPOINT_URL + `/trajectories/${trajectoryId}`, {
+        method: 'DELETE',
+    });
+    if (response.status !== 204) {
+        const errorData = await response.json();
+        throw new Error(errorData.message);
+    }
+    return
+};
+
+export const deleteReport = async (reportId) => {
+    const response = await fetch(ENDPOINT_URL + `/results/${reportId}`, {
+        method: 'DELETE',
+    });
+    if (response.status !== 204) {
+        const errorData = await response.json();
+        throw new Error(errorData.message);
+    }
+    return
 };
